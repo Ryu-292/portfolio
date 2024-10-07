@@ -384,3 +384,27 @@
     })();
 
 })(document.documentElement);
+
+// Get the button:
+const backToTopBtn = document.getElementById("backToTopBtn");
+
+// Show the button when the user scrolls down 20px from the top
+window.onscroll = function() {
+    scrollFunction();
+};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        backToTopBtn.style.display = "block";
+    } else {
+        backToTopBtn.style.display = "none";
+    }
+}
+
+// Scroll smoothly back to the top when the button is clicked
+function topFunction() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}

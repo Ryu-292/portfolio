@@ -4856,3 +4856,23 @@ video {
 	color: #FFA726;
 	transform: translateY(-2px);
 }
+
+#backToTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    z-index: 99; /* Stay on top of other content */
+    border: none;
+    outline: none;
+    background-color: #555; /* Background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Pointer/hand icon */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+}
+
+#backToTopBtn:hover {
+    background-color: #333; /* Darker background on hover */
+}
