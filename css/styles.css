@@ -3525,13 +3525,6 @@ td:last-child {
 	margin-bottom: 0;
 }
 
-.page-title__quote {
-    font-size: 16px;
-    font-style: italic;
-    display: block;
-    margin-top: 10px;
-    color: #555; /* Couleur pour la citation */
-}
 
 .s-pagecontent {
 	padding-top   : var(--vspace-4);
@@ -4376,7 +4369,7 @@ td:last-child {
  * ------------------------------------------------------------------- */
 .ss-go-top {
 	z-index : 2;
-	position: absolute;
+	position: fixed;
 	bottom  : -0.8rem;
 	right   : var(--gutter);
 }
