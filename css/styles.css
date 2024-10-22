@@ -3525,7 +3525,6 @@ td:last-child {
 	margin-bottom: 0;
 }
 
-
 .s-pagecontent {
 	padding-top   : var(--vspace-4);
 	padding-bottom: var(--vspace-3);
@@ -4369,7 +4368,7 @@ td:last-child {
  * ------------------------------------------------------------------- */
 .ss-go-top {
 	z-index : 2;
-	position: fixed;
+	position: absolute;
 	bottom  : -0.8rem;
 	right   : var(--gutter);
 }
@@ -4857,4 +4856,3 @@ video {
 	color: #FFA726;
 	transform: translateY(-2px);
 }
-
