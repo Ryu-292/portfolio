@@ -384,7 +384,64 @@
                                         </div>
                                     </div>
                                 </div>
-                        
+                                
+                                <!-- Jeu Arduino -->
+                                <div id="arduino-game" class="grid-full grid-list-items list-items show-ctr">
+                                    <div class="grid-list-items__item list-items__item">
+                                        <div class="list-items__item-header">
+                                            <h3 class="list-items__item-title">Arduino Game [Ryu VS Lucas]</h3>
+                                        </div>
+                                        <div class="list-items__item-text">
+                                            
+                                            <p>
+                                                
+                                                During the second part of the Arduino HMAA course, we learned how to connect and communicate with another ESP32 board. <br>
+                                                For the project, we had to create a mini-game using two ESP32 boards. 
+                                                Lucas and I decided to make a 1-vs-1 game similar to Street Fighter. 
+                                                We first designed two pixel art characters, each with four different moves       
+                                            </p>
+                                            
+                                            <div style="display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                                <img src="images/characters.png" alt="characters" width="1000" height="auto" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                            </div> 
+                                                                                        
+                                            <p>
+                                                We first tried to display the characters on the 128x64 screen and make them move when pressing a button. 
+                                                Initially, we wanted to control the characters' movements with a joystick, but we couldn't display it correctly. 
+                                                So, we decided to focus solely on the attacking mechanics.  
+
+                                            </p>
+
+                                            <div style="display: flex; justify-content: center; align-items: center; gap: 100px; flex-wrap: wrap;">
+                                                <video autoplay loop muted style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: 600px; height: auto;">
+                                                    <source src="images/chMoving.mp4" type="video/mp4">
+                                                    Your browser does not support the video tag.
+                                                </video>
+                                            </div>
+                                            
+                                            <p>
+                                                Then, we used WebSocket to connect both boards by creating a server on Lucas's board and connecting my board to it. <br>
+                                                We successfully created a mini-game with the two boards, where the objective was to press the button as fast as possible until the opponent lost all their life points to win. <br>
+                                                However, we couldn't implement the character animations in the game, which was a bit disappointing.    
+
+                                            </p>
+
+                                            <div style="display: flex; justify-content: center; align-items: center; gap: 100px; flex-wrap: wrap;">
+                                                <video autoplay loop muted style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: 600px; height: auto;">
+                                                    <source src="images/game.mp4" type="video/mp4">
+                                                    Your browser does not support the video tag.
+                                                </video>
+                                            </div>
+                                             
+                                            <p>
+                                                Overall, even though it was a bit challenging, it was a really fun project to work on.
+                                                It would have been even better if we had one more day to finish the game.
+                                            <p>
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div>
                             
                             </div>
                             
