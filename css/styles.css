@@ -3657,7 +3657,7 @@ td:last-child {
 
 .s-intro__content-media img {
 	z-index       : 2;
-	width         : max(550px, 10vw);
+	width         : max(600px, 10vw);
 	margin        : 0;
 	-o-object-fit : cover;
 	object-fit    : cover;
