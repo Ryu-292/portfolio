@@ -7,12 +7,13 @@ import { mainProjects } from '../data/projects'
 /* ─────────────────────── helpers ─────────────────────── */
 
 function FadeIn({
-  children, delay = 0, style, className,
+  children, delay = 0, style, className, onClick,
 }: {
   children: React.ReactNode
   delay?: number
   style?: React.CSSProperties
   className?: string
+  onClick?: React.MouseEventHandler<HTMLDivElement>
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-50px' })
@@ -21,6 +22,7 @@ function FadeIn({
       ref={ref}
       className={className}
       style={style}
+      onClick={onClick}
       initial={{ opacity: 0, y: 32 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.72, delay, ease: [0.16, 1, 0.3, 1] }}
