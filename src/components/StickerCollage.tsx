@@ -139,8 +139,8 @@ function DesktopSticker({ data }: { data: StickerData }) {
               : 'drop-shadow(0 4px 14px rgba(0,0,0,0.18)) drop-shadow(0 1px 3px rgba(0,0,0,0.1))',
             transition: 'filter 0.4s ease',
             userSelect: 'none',
-            WebkitUserDrag: 'none' as React.CSSProperties['WebkitUserDrag'],
-          } as React.CSSProperties}
+            WebkitUserDrag: 'none',
+          } as React.CSSProperties & { WebkitUserDrag: string }}
         />
       </Link>
     </motion.div>
