@@ -22,7 +22,9 @@ interface StickerData {
   id: string
   src: string
   alt: string
-  to: string
+  to?: string
+  href?: string
+  download?: boolean
   // Desktop
   left: number
   top: number
@@ -73,7 +75,51 @@ const STICKERS: StickerData[] = [
     delay: 0.2, zIndex: 2,
     mWidth: 160, mRotation: 4, mMarginTop: -14,
   },
+  {
+    id: 'cv',
+    src: '/fichier/cv_sticker.png',
+    alt: 'Download CV',
+    href: '/fichier/CV_RyuOSADA.pdf',
+    download: true,
+    left: 555, top: 300, width: 195, rotation: -5,
+    delay: 0.25, zIndex: 3,
+    mWidth: 155, mRotation: -4, mMarginTop: 10,
+  },
+  {
+    id: 'envelope',
+    src: '/fichier/envelope_sticker.png',
+    alt: 'Send me an email',
+    href: 'mailto:ryuosada12@gmail.com',
+    left: 712, top: 345, width: 172, rotation: 8,
+    delay: 0.3, zIndex: 2,
+    mWidth: 142, mRotation: 5, mMarginTop: -8,
+  },
 ]
+
+/* ─── Link wrapper ─────────────────────────────────────────── */
+
+function StickerLink({ data, children }: { data: StickerData; children: React.ReactNode }) {
+  const style: React.CSSProperties = { display: 'block', textDecoration: 'none' }
+  if (data.href) {
+    const isMailto = data.href.startsWith('mailto:')
+    return (
+      <a
+        href={data.href}
+        aria-label={data.alt}
+        style={style}
+        {...(!isMailto ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+        {...(data.download ? { download: true } : {})}
+      >
+        {children}
+      </a>
+    )
+  }
+  return (
+    <Link to={data.to!} aria-label={data.alt} style={style}>
+      {children}
+    </Link>
+  )
+}
 
 /* ─── Magnetic sticker (desktop) ──────────────────────────── */
 
@@ -121,11 +167,7 @@ function DesktopSticker({ data }: { data: StickerData }) {
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => { mx.set(0); my.set(0); setHov(false) }}
     >
-      <Link
-        to={data.to}
-        aria-label={data.alt}
-        style={{ display: 'block', textDecoration: 'none' }}
-      >
+      <StickerLink data={data}>
         <img
           src={data.src}
           alt={data.alt}
@@ -142,7 +184,7 @@ function DesktopSticker({ data }: { data: StickerData }) {
             WebkitUserDrag: 'none',
           } as React.CSSProperties & { WebkitUserDrag: string }}
         />
-      </Link>
+      </StickerLink>
     </motion.div>
   )
 }
@@ -165,11 +207,7 @@ function MobileSticker({ data, col }: { data: StickerData; col: 0 | 1 }) {
       whileTap={{ scale: 0.95 }}
       transition={{ duration: 0.55, delay: (col === 1 ? 0.06 : 0), ease: [0.16, 1, 0.3, 1] }}
     >
-      <Link
-        to={data.to}
-        aria-label={data.alt}
-        style={{ display: 'block', textDecoration: 'none' }}
-      >
+      <StickerLink data={data}>
         <img
           src={data.src}
           alt={data.alt}
@@ -183,7 +221,7 @@ function MobileSticker({ data, col }: { data: StickerData; col: 0 | 1 }) {
             userSelect: 'none',
           }}
         />
-      </Link>
+      </StickerLink>
     </motion.div>
   )
 }
