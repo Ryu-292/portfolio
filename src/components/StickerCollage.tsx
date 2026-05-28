@@ -26,7 +26,8 @@ interface StickerData {
   href?: string
   download?: boolean
   // Desktop
-  left: number
+  left?: number
+  right?: number
   top: number
   width: number
   rotation: number
@@ -80,7 +81,7 @@ const STICKERS: StickerData[] = [
     src: '/fichier/cv_sticker.png',
     alt: 'Open CV',
     href: '/fichier/CV_RyuOSADA.pdf',
-    left: 690, top: 305, width: 195, rotation: -5,
+    right: 210, top: 305, width: 195, rotation: -5,
     delay: 0.25, zIndex: 3,
     mWidth: 155, mRotation: -4, mMarginTop: 10,
   },
@@ -89,7 +90,7 @@ const STICKERS: StickerData[] = [
     src: '/fichier/envelope_sticker.png',
     alt: 'Send me an email',
     href: 'mailto:ryuosada12@gmail.com',
-    left: 858, top: 350, width: 172, rotation: 8,
+    right: 20, top: 350, width: 172, rotation: 8,
     delay: 0.3, zIndex: 2,
     mWidth: 142, mRotation: 5, mMarginTop: -8,
   },
@@ -139,7 +140,7 @@ function DesktopSticker({ data }: { data: StickerData }) {
       ref={ref}
       style={{
         position: 'absolute',
-        left: data.left,
+        ...(data.right !== undefined ? { right: data.right } : { left: data.left }),
         top: data.top,
         width: data.width,
         x: smx,
