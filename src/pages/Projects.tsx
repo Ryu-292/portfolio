@@ -58,21 +58,6 @@ export default function Projects() {
           </motion.div>
         </div>
 
-        {/* Top-right meta */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          style={{ position: 'absolute', top: 36, right: 64, zIndex: 10, pointerEvents: 'none', textAlign: 'right' }}
-        >
-          <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 9, letterSpacing: '0.15em', color: '#8C8C8C' }}>
-            {mainProjects.length} WORKS
-          </div>
-          <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 8, letterSpacing: '0.1em', color: '#D0D0D0', marginTop: 4 }}>
-            THREE.JS · INTERACTIVE
-          </div>
-        </motion.div>
-
         {/* Carousel — fills entire viewport */}
         <div style={{ position: 'absolute', inset: 0, zIndex: 2 }}>
           <CarouselScene onHoverChange={setHoveredId} />

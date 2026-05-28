@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion'
 import PageWrapper from '../components/PageWrapper'
 import HoloPortrait from '../components/HoloPortrait'
 import Footer from '../components/Footer'
+import StickerCollage from '../components/StickerCollage'
 
 function FadeIn({ children, delay = 0, style }: { children: React.ReactNode, delay?: number, style?: React.CSSProperties }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -40,7 +41,8 @@ export default function Home() {
 
   return (
     <PageWrapper>
-      {/* Hero Section */}
+
+      {/* ── Hero ─────────────────────────────────────────── */}
       <section className="hero-grid" style={{
         height: 'calc(100vh - 64px)',
         display: 'grid',
@@ -51,8 +53,7 @@ export default function Home() {
       }}>
         {/* Grid overlay */}
         <div style={{
-          position: 'absolute',
-          inset: 0,
+          position: 'absolute', inset: 0,
           backgroundImage: 'linear-gradient(rgba(0,71,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,71,255,0.03) 1px, transparent 1px)',
           backgroundSize: '40px 40px',
           pointerEvents: 'none',
@@ -61,10 +62,10 @@ export default function Home() {
         {/* Left — Identity */}
         <div className="hero-left" style={{
           paddingTop: 'clamp(32px, 4vh, 56px)',
-          //paddingRight: 'clamp(20px, 3vw, 48px)',
           paddingBottom: 'clamp(48px, 6vh, 80px)',
           paddingLeft: 'clamp(40px, 6vw, 100px)',
-          display: 'flex', flexDirection: 'column', justifyContent: 'space-between', position: 'relative', zIndex: 2,
+          display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+          position: 'relative', zIndex: 2,
         }}>
           <div>
             {/* Status label */}
@@ -90,14 +91,9 @@ export default function Home() {
                 <div style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: 'clamp(56px, 7vw, 96px)',
-                  fontWeight: 900,
-                  letterSpacing: '-0.03em',
-                  lineHeight: 0.9,
-                  color: '#0A0A0A',
-                  marginBottom: 4,
-                }}>
-                  RYU
-                </div>
+                  fontWeight: 900, letterSpacing: '-0.03em',
+                  lineHeight: 0.9, color: '#0A0A0A', marginBottom: 4,
+                }}>RYU</div>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
@@ -107,13 +103,9 @@ export default function Home() {
                 <div style={{
                   fontFamily: 'Inter, sans-serif',
                   fontSize: 'clamp(56px, 7vw, 96px)',
-                  fontWeight: 900,
-                  letterSpacing: '-0.03em',
-                  lineHeight: 0.9,
-                  color: '#0047FF',
-                }}>
-                  OSADA
-                </div>
+                  fontWeight: 900, letterSpacing: '-0.03em',
+                  lineHeight: 0.9, color: '#0047FF',
+                }}>OSADA</div>
               </motion.div>
             </div>
 
@@ -130,19 +122,13 @@ export default function Home() {
                   Designer + Engineer
                 </span>
               </div>
-              <p style={{
-                fontSize: 14,
-                lineHeight: 1.8,
-                color: '#4A4A4A',
-                maxWidth: 360,
-                fontWeight: 400,
-              }}>
+              <p style={{ fontSize: 14, lineHeight: 1.8, color: '#4A4A4A', maxWidth: 360, fontWeight: 400 }}>
                 Creating at the intersection of technology and sensory experience —
                 from physical installations to wearable systems and interactive environments.
               </p>
             </motion.div>
 
-            {/* Metadata block */}
+            {/* Metadata */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -163,7 +149,7 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Bottom links */}
+          {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -171,16 +157,11 @@ export default function Home() {
             style={{ display: 'flex', gap: 16, alignItems: 'center', marginBottom: 56 }}
           >
             <Link to="/projects" style={{
-              textDecoration: 'none',
-              padding: '12px 28px',
-              background: '#0047FF',
-              color: '#fff',
-              fontFamily: 'JetBrains Mono, monospace',
-              fontSize: 10,
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              transition: 'all 0.2s ease',
-              display: 'inline-block',
+              textDecoration: 'none', padding: '12px 28px',
+              background: '#0047FF', color: '#fff',
+              fontFamily: 'JetBrains Mono, monospace', fontSize: 10,
+              letterSpacing: '0.2em', textTransform: 'uppercase',
+              transition: 'background 0.2s ease', display: 'inline-block',
             }}
             onMouseEnter={e => (e.currentTarget.style.background = '#0033CC')}
             onMouseLeave={e => (e.currentTarget.style.background = '#0047FF')}
@@ -188,16 +169,11 @@ export default function Home() {
               View Projects
             </Link>
             <Link to="/lab" style={{
-              textDecoration: 'none',
-              padding: '12px 28px',
-              border: '1px solid #0A0A0A',
-              color: '#0A0A0A',
-              fontFamily: 'JetBrains Mono, monospace',
-              fontSize: 10,
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              transition: 'all 0.2s ease',
-              display: 'inline-block',
+              textDecoration: 'none', padding: '12px 28px',
+              border: '1px solid #0A0A0A', color: '#0A0A0A',
+              fontFamily: 'JetBrains Mono, monospace', fontSize: 10,
+              letterSpacing: '0.2em', textTransform: 'uppercase',
+              transition: 'all 0.2s ease', display: 'inline-block',
             }}
             onMouseEnter={e => { e.currentTarget.style.background = '#0A0A0A'; e.currentTarget.style.color = '#F8F8F6' }}
             onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#0A0A0A' }}
@@ -207,25 +183,18 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Right — Three.js viewport */}
+        {/* Right — Holographic portrait */}
         <div className="hero-three" style={{
           position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center',
           paddingLeft: 'clamp(40px, 6vw, 100px)',
           paddingRight: 'clamp(40px, 6vw, 100px)',
         }}>
-          {/* UI Frame around Three.js */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
-            style={{
-              position: 'relative',
-              width: '100%',
-              aspectRatio: '1',
-              border: '1px solid #D0D0D0',
-            }}
+            style={{ position: 'relative', width: '100%', aspectRatio: '1', border: '1px solid #D0D0D0' }}
           >
-            {/* Corner brackets */}
             {[
               { top: -1, left: -1, borderTop: '2px solid #0047FF', borderLeft: '2px solid #0047FF' },
               { top: -1, right: -1, borderTop: '2px solid #0047FF', borderRight: '2px solid #0047FF' },
@@ -234,22 +203,14 @@ export default function Home() {
             ].map((s, i) => (
               <div key={i} style={{ position: 'absolute', width: 16, height: 16, ...s }} />
             ))}
-
-            {/* Holographic portrait */}
             <HoloPortrait style={{ width: '100%', height: '100%' }} />
           </motion.div>
 
-          {/* Vertical text */}
           <div style={{
-            position: 'absolute',
-            right: 24,
-            top: '50%',
+            position: 'absolute', right: 24, top: '50%',
             transform: 'translateY(-50%) rotate(90deg)',
-            fontFamily: 'JetBrains Mono, monospace',
-            fontSize: 8,
-            letterSpacing: '0.3em',
-            color: '#D0D0D0',
-            whiteSpace: 'nowrap',
+            fontFamily: 'JetBrains Mono, monospace', fontSize: 8,
+            letterSpacing: '0.3em', color: '#D0D0D0', whiteSpace: 'nowrap',
           }}>
             PORTFOLIO — 2025 — RYU OSADA
           </div>
@@ -275,11 +236,11 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* ── Second viewport: ticker + projects preview + contact ── */}
-      <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', overflow: 'hidden', background: '#F8F8F6' }}>
+      {/* ── Ticker + Selected Works ───────────────────────── */}
+      <div style={{ background: '#F8F8F6' }}>
 
         {/* Ticker */}
-        <div style={{ background: '#0A0A0A', height: 40, flexShrink: 0, overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
+        <div style={{ background: '#0A0A0A', height: 40, overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
           <div ref={tickerRef} style={{ display: 'flex', gap: 0, whiteSpace: 'nowrap', willChange: 'transform' }}>
             {Array(4).fill(null).map((_, i) => (
               <span key={i} style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 9, letterSpacing: '0.25em', color: '#F8F8F6', paddingRight: 80, opacity: 0.6 }}>
@@ -289,80 +250,46 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Featured projects — fills all remaining height */}
-        <section style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', padding: `28px clamp(40px, 6vw, 100px) 0` }}>
-          <FadeIn style={{ flexShrink: 0 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 20 }}>
-              <div>
-                <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 9, letterSpacing: '0.25em', color: '#0047FF', marginBottom: 6 }}>
-                  SELECTED WORKS
+        {/* Selected Works section */}
+        <section style={{
+          paddingTop: 'clamp(44px, 5.5vh, 70px)',
+          paddingBottom: 'clamp(60px, 8vh, 96px)',
+        }}>
+
+          {/* Section header */}
+          <FadeIn style={{ padding: `0 clamp(40px, 6vw, 100px)`, marginBottom: 'clamp(32px, 4.5vh, 56px)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+                <div style={{
+                  fontFamily: 'JetBrains Mono, monospace',
+                  fontSize: 9, letterSpacing: '0.25em',
+                  color: '#0047FF', textTransform: 'uppercase',
+                }}>
+                  Selected Works
                 </div>
-                <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(28px, 3.5vw, 48px)', fontWeight: 900, letterSpacing: '-0.03em', color: '#0A0A0A', lineHeight: 1 }}>
-                  Projects
-                </h2>
               </div>
               <Link to="/projects" style={{
                 textDecoration: 'none',
                 fontFamily: 'JetBrains Mono, monospace',
-                fontSize: 10,
-                letterSpacing: '0.15em',
+                fontSize: 9, letterSpacing: '0.15em',
                 color: '#0047FF',
-                display: 'flex',
-                alignItems: 'center',
-                gap: 8,
+                display: 'flex', alignItems: 'center', gap: 8,
+                textTransform: 'uppercase',
               }}>
-                ALL PROJECTS <span style={{ fontSize: 14 }}>→</span>
+                All Projects <span style={{ fontSize: 14 }}>→</span>
               </Link>
             </div>
           </FadeIn>
 
-          {/* Grid fills the rest of the section height */}
-          <div style={{ flex: 1, minHeight: 0, display: 'grid', gridTemplateColumns: '2fr 1fr', gap: 2 }}>
-            {/* Featured card */}
-            <FadeIn delay={0.1} style={{ minHeight: 0, height: '100%' }}>
-              <Link
-                to="/projects/neuroportals"
-                style={{ textDecoration: 'none', display: 'block', position: 'relative', overflow: 'hidden', height: '100%', background: '#0A0A0A' }}
-                onMouseEnter={e => (e.currentTarget.querySelector('.overlay') as HTMLElement).style.opacity = '1'}
-                onMouseLeave={e => (e.currentTarget.querySelector('.overlay') as HTMLElement).style.opacity = '0'}
-              >
-                <img src="/images/NeuroPortals/neuroIntro.png" alt="NeuroPortals" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.85, transition: 'opacity 0.5s ease, transform 0.8s ease', display: 'block' }} />
-                <div className="overlay" style={{ position: 'absolute', inset: 0, background: 'rgba(0,71,255,0.15)', transition: 'opacity 0.4s ease', opacity: 0 }} />
-                <div style={{ position: 'absolute', inset: 0, padding: 24, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                  <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 9, letterSpacing: '0.2em', color: 'rgba(255,255,255,0.5)' }}>01 / INSTALLATION</div>
-                  <div>
-                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 28, fontWeight: 900, color: '#fff', letterSpacing: '-0.02em', lineHeight: 1 }}>NeuroPortals</div>
-                    <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 10, color: 'rgba(255,255,255,0.5)', marginTop: 6 }}>Brain-Computer Interface Installation</div>
-                  </div>
-                </div>
-                <div style={{ position: 'absolute', bottom: 0, right: 0, width: 0, height: 0, borderStyle: 'solid', borderWidth: '0 0 40px 40px', borderColor: 'transparent transparent #0047FF transparent' }} />
-              </Link>
-            </FadeIn>
+          {/* The collage */}
+          <StickerCollage />
 
-            {/* Right column */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 2, minHeight: 0 }}>
-              {[
-                { id: 'elastup', img: '/images/Elastup/ElastupHolo.png', idx: '02', cat: 'WEARABLE', title: 'Elastup' },
-                { id: 'sakekagami', img: '/images/Sakekagami/sakekagamiPoster.png', idx: '03', cat: 'INSTALLATION', title: 'Sakekagami' },
-              ].map(p => (
-                <FadeIn key={p.id} delay={0.2} style={{ flex: 1, minHeight: 0 }}>
-                  <Link to={`/projects/${p.id}`} style={{ textDecoration: 'none', display: 'block', position: 'relative', overflow: 'hidden', height: '100%', background: '#0A0A0A' }}>
-                    <img src={p.img} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.8, transition: 'transform 0.8s ease', display: 'block' }} />
-                    <div style={{ position: 'absolute', inset: 0, padding: 16, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                      <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 8, letterSpacing: '0.2em', color: 'rgba(255,255,255,0.4)' }}>{p.idx} / {p.cat}</div>
-                      <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 16, fontWeight: 900, color: '#fff', letterSpacing: '-0.02em' }}>{p.title}</div>
-                    </div>
-                  </Link>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
         </section>
-
       </div>
 
-      {/* Footer */}
+      {/* ── Footer ───────────────────────────────────────── */}
       <Footer />
+
     </PageWrapper>
   )
 }
